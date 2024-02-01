@@ -1,0 +1,23 @@
+
+EV easy problems
+1
+10*(4/52)
+
+2
+some approach will be DP or binomial coefficients 
+E(1000 + delta1 + delta2 + ... +deltaN)
+= 1000+7.5N
+
+
+3
+(1*1+2*3+3*5+4*7+5*9+6*11)/36
+
+4
+sum(((r/6)^n - ((r-1)/6)^n) * r)  inprevious n is 2
+
+5
+E = 365*P(day with bday)
+P = 1 - (364/365)^20
+
+6
+

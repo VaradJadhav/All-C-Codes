@@ -1,0 +1,61 @@
+//TakeUForward
+root 
+children
+leaf node 
+ancestors 
+levels 
+
+binary trees - each node is having only at max two children
+
+types of binary trees - 
+1] Full binary trees
+every node has either 0 or 2 children
+2] Complete binary trees
+all levels are completely filled except last level and 
+last level has all nodes in left as possible 
+3] Perfect binary trees
+all leaf nodes are at same level 
+4] Balanced BT
+height of tree at max log(n+1)
+5] Degenerate trees
+every node has single child
+
+
+We represent BT in c++ as struct
+|left|val|right|
+
+
+Traversals 
+Inorder - left->root->right
+Preorder - root->left->right
+Postorder - left->right->root 
+
+max nodes at level l = 2^l
+max nodes in tree of height h = 2^h-1 
+min possible height is log2(n+1)
+L leaves of BT has at least log2(n+1)+1 levels
+
+
+binary Search tree --->
+left subtree of node contains only nodes with keys lesser
+right subtree of node contains only nodes with keys higher 
+it is not a BST if two nodes have equal values except any condition given 
+
+Height of tree
+depth of the tree's deepest node
+
+Diameter of tree
+No of nodes in the longest path between any two leaves
+
+Balanced Height Tree 
+for each node the diff between the heights of left
+subtree and right subtree <= 1
+
+
+Catalan no
+sequence of natural nos that occur in varios 
+counting problems \
+often involving recursively defined objects 
+their closed form is in terms of binoial coe 
+Cn = (1/(n+1))*(2nCn)
+    =sum(CiC(n-i)) , i=0 to n-1

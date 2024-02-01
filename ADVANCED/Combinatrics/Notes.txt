@@ -1,0 +1,47 @@
+nCk = n!/(k!(n-k)!)
+    = ((n-1)C(k-1))+((n-1)Ck)
+
+if n<k return 0
+
+Props
+nCk = nC(n-k)
+nCk = n/k((n-1)C(k-1))
+sum(k=0,n)(nCk) = 2^n 
+sum(m=0,n)(nCk) = (n+1)C(k+1)
+sum(k=0,m)((n+k)Ck) = (n+m+1)Cm 
+(sum(k=0,n)(nCk))^2 = 2nCn
+sum(k=0,n)(k*(nCk)) = n*2^(n-1)
+(nC0 + (n-1)C1 + ... + (n-k)Ck + ... + (0Cn)) = F(n+1) //fibbonacci
+
+
+
+
+Lucas' Theorem
+mCn = pi(i=0,k)((miCni)mod p) mod p    here p is prime 
+m=mkp^k+m(k-1)p^(k-1)+...+m1p+m0
+n=nkp^k+n(k-1)p^(k-1)+...+n1p+n0
+
+if m<n return 0
+
+
+
+
+phi function 
+counts the number of integers between 1 and  
+n  inclusive, which are coprime to n 
+phi(a*b)=phi(a)*phi(b)*d/phi(d)  where d is gcd(a,b)
+
+divisor sum property 
+sum(d|n) phi(d) = n 
+eg
+for 10 --- phi(1)+phi(2)+phi(5)+phi(10) = 10
+
+
+Euler's thm 
+a^(phi(m)) == 1 mod m 
+Fermat's Little thm for prime m
+a^(m-1) == 1 mod m 
+
+
+Chinese Remainder thm CRT 
+
