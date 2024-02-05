@@ -1,0 +1,20 @@
+//striver
+fenwick tree or binary index tree 
+
+update operation in logn 
+find operation in logn
+
+implementation
+
+first of all from 1 to n 
+each index n's binary representation right most set bit is 
+turned off and m is formed then range from (m+1,n)
+
+2's complement is calculated at each point 
+(-n)
+
+
+POint update
+query is idx update A[idx] with val
+
+
