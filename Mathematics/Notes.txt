@@ -1,0 +1,169 @@
+Number theory advanced
+
+Diophantine Equations
+polynomial eq for which integral sol exists 
+eg 3x+7y=1  x^2-y^2=z^3
+
+in cp we deal with linear equations 
+ax + by = c
+a,b,c blong to I
+solutions exists if gcd(a,b) divides c 
+
+Extended Euclid Algo 
+ax + by = gcd(a,b)
+gcd(a,b)=gcd(b,a%b)
+gcd(b,a%b)=bx1+(a%b)y1
+a%b = a - (a/b)*b
+
+ax + by = bx1 + (a%b)y1 
+ax + by = bx1 + (a-(a/b)*b)y1 
+ax + by = ay1 + b(x1-(a/b)*y1)
+
+Multiplicative Modulo Inverse 
+we have to find B here 
+(A*B)%m=1
+mmi ixists only if A and m are coprime
+A*B == 1  ( == mod m)
+A*B - 1 == 0
+A*B -1 = mq 
+A*B + mQ = 1
+it looks like extended euclid's x 
+
+
+Euler Totient Function
+phi(n) => 1<=m<n gcd(m,n)=1
+phi(n)=n*(1-1/p1)*(1-1/p2)*..(1-1/pk)
+where p1,p2,..,pk are distinct prime factors 
+
+phi(A*B)=phi(A)*phi(B)
+
+
+Modulo 
+(a+b)%m=a%m+b%m
+(a*b)%m=a%m*b%m 
+(a-b)%m=(a%m-b%m + m)%m
+(a/b)%m=a%m*b^-1%m 
+
+
+Binary Exponentiation 
+
+
+Fermat's Little thm 
+if p is prime no then for any integer a, 
+number a^p-a is an integer multiple of p 
+a^p == a    (==mod p)
+if a is not divisible by p 
+a^(p-1)-1 is integer multiple of p
+a^(p-1)==1  (==mod p)
+
+ie 
+a^(p-2)==a^-1 
+inverse is calculated easily 
+
+nCr = n!/(n-r)!r!
+pre-cal fctorials taking modulo p 
+if p>n;
+(fact[n]*modinverse(fact[r])%p*modinverse(fact[n-r])%p)%p
+if p<n;
+we can not find 
+
+Wilson's Thm 
+a pos integer n>1 is a prime if and only if 
+(n-1)! == -1 (mod n)
+or 
+(n-1)! == n-1 (mod n)
+
+
+
+Chicken McNugget Theorem
+The Chicken McNugget Theorem (or Postage Stamp Problem or Frobenius Coin Problem)
+ states that for any two relatively prime positive integers $m,n$, the greatest
+  integer that cannot be written in the form $am + bn$ for nonnegative integers $a, b$
+is $mn-m-n$.
+
+A consequence of the theorem is that there are exactly $\frac{(m - 1)(n - 1)}{2}$
+ positive integers which cannot be expressed in the form $am + bn$.
+  The proof is based on the fact that in each pair of the form $(k, mn-m-n-k)$,
+   exactly one element is expressible.
+
+
+
+
+BigInteger: For calculating factorials of large numbers which even C++ can’t store in
+“long long int”. If we think to use Python, which gives us reliability in many of
+such cases because we can use its “sys.setrecursionlimit( )” upto a fixed number 
+ultimately python will also give an error in it. Another way of doing this in C++
+is to use vector and we could use the concept of hashing wisely here, each number 
+will hold an index of an array, e.g. number is 18945 then 18945%10=5 will be stored at
+index[4] and the number now=18945/10=1234. now 7894%10=4 will be in [3] and so on to 1%10=1
+is in [0], or you can use string too, it is easier since char array only allow 1 byte for each
+index so you don’t need that modulation operation to fit number into an index.
+Java has BigInteger class to hand this.
+
+
+GCD 
+//Euclid Algorithm
+int gcd(int a,int b){
+  if(b==0)return a;
+  return gcd(b,a%b);
+}
+Time Complexity: O(log min(a,b))
+
+Extended Euclid Algorithm
+It is particularly useful when a and b are coprime while the Euclid algorithm
+only helps to find out GCD of two numbers while extended Euclid algorithm also
+ tells how to represent the GCD in terms of a and b, i.e. coefficients x and y 
+ for which a.x + b.y = gcd(a,b).
+
+int gcd(int a,int b,int &x,int &y){
+  if(b==0){
+    x=1;y=0;
+    return a;
+  }
+  int x1,y1;
+  int d=gcd(b,a%b,x1,y1);
+  x=y1;
+  y=x1-y1*(a/b);
+  return d;
+}
+
+/////Catalan numbers
+int catalan(int n){
+    if(n<=1)return 1;
+    int res=0;
+    for(int i=0;i<n;i++){
+        res += catalan(i)*catalan(n-i-1);
+    }
+    return res;
+}
+
+Balanced Parentheses: Suppose you have n pairs of parentheses.
+ For example “()()” is valid but ”(()” is invalid and you have
+  to tell how many groupings are there for each value of n?
+Mountain Ranges: How many mountain ranges can you form with n
+ upstrokes and n downstrokes that all stay above the original line?
+Diagonal-Avoiding Paths: In a grid of n×n squares, how many paths are
+ there of length 2n that lead from the upper left corner to the
+  lower right corner that does not touch the diagonal dotted line
+   from upper left to lower right? In other words, how many paths
+    stay on or above the main diagonal?
+Polygon Triangulation: If you count the number of ways to triangulate
+ a regular polygon with n + 2 sides, you also obtain the Catalan numbers.
+Hands Across a Table: If 2n people are seated around a circular table,
+ in how many ways can all of them be simultaneously shaking hands with
+  another person at the table in such a way that none of the arms crosses each other.
+Multiplication Orderings: Suppose you have a set of n + 1 numbers to multiply
+ together, meaning that there are n multiplications to perform.
+  Without changing the order of the numbers themselves, you can
+   multiply the numbers together in many orders.
+Skew Polyominos: A polyomino is a set of squares connected by their edges.
+ A skew polyomino is a polyomino such that every vertical and horizontal
+  line hits a connected set of squares and such that the successive columns
+   of squares from left to right increase in height—the bottom of the
+    column to the left is always lower or equal to the bottom of the column to the right.
+Binary Trees: The Catalan numbers also count the number of rooted binary trees with n
+ internal nodes. Illustrated in Figure 4 are the trees corresponding to 0 ≤ n ≤ 3.
+  There are 1, 1, 2, and 5 of them. Try to draw the 14 trees with n = 4 internal nodes.
+Plane Rooted Trees: A plane rooted tree is just like the binary tree above,
+ except that a node can have any number of sub-nodes; not just two.
+
