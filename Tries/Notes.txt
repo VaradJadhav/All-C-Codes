@@ -1,0 +1,9 @@
+Tries are prefix trees 
+
+insertion in trie 
+eg ANT EGG EGGS AND
+                | |
+            A         E 
+        N                   G 
+    T -true D -true             G -true
+                                    S -true
