@@ -1,0 +1,16 @@
+Heaps are binary tree based data structure 
+
+Heaps - 1]MinHeap = Root>rest of ele present in its subtree
+        2]MaxHeap = Root<rest of ele present in its subtree
+
+Using Heapify operations we make minheap and MaxHeap
+
+Heap STL
+MaxHeap  = priority_queue<int,vector<int>>
+MinHeap = priority_queue<int,vector<int>,greater<int>>
+
+push = O(logn)
+pop = O(logn)
+top = O(1)
+size = O(1)
+
