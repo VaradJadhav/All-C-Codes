@@ -1,0 +1,24 @@
+Hashing 
+Converting elements into smaller numbers using functions 
+
+Colision
+Separate Chaining
+Open Addressing - Probing
+                Linear Probing  P(k)=a*k+b
+                Quadratic Probing P(k)=a*k2+b*k+c
+                Double Hashing P(k,x)=k*h2(x) h2(x) is second hashing func
+
+
+Hashing STL 
+maps
+insertion  O(log(n))
+accessing  O(log(n))
+deletion  O(log(n))
+implemented using red-black trees 
+unordeered maps 
+insertion  O(1)
+accessing  O(1)
+deletion  O(n)
+implemented using hash tables(array of buckets)
+
+
